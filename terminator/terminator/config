@@ -6,6 +6,7 @@
   switch_to_tab_3 = <Alt>3
   switch_to_tab_4 = <Alt>4
   switch_to_tab_5 = <Alt>5
+  edit_tab_title = <Primary><Alt>s
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
@@ -36,10 +37,10 @@
       type = Window
       parent = ""
       order = 0
-      position = 4041:253
+      position = 2930:290
       maximised = False
       fullscreen = False
-      size = 950, 611
+      size = 939, 554
       title = oey@oey-MSI:~
       last_active_term = d52de91b-5387-49d1-8b3d-00bd05fa057e
       last_active_window = True
@@ -49,4 +50,36 @@
       order = 0
       profile = h0
       uuid = d52de91b-5387-49d1-8b3d-00bd05fa057e
+  [[l1]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 3639:394
+      maximised = False
+      fullscreen = False
+      size = 1239, 554
+      title = oey@oey-MSI:~
+      last_active_term = d52de91b-5387-49d1-8b3d-00bd05fa057e
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 623
+      ratio = 0.5048622366288493
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = h2
+      uuid = d52de91b-5387-49d1-8b3d-00bd05fa057e
+      command = ""
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = h1
+      uuid = d7a74639-783c-47f4-9b0b-6b5a177171d2
+      command = ""
 [plugins]
