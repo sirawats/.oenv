@@ -7,3 +7,9 @@ echo "Install fonts-powerline"
 sudo apt install fonts-powerline
 echo "Make zsh the default"
 chsh -s $(which zsh)
+read -r -p "Copy zshrc to ~/.zshrc ? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+	cp zshrc ~/.zshrc
+	cp shorter.sh ~/.shorter.sh
+fi

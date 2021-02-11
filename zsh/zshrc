@@ -110,6 +110,7 @@ prompt_context() {
 }
 unsetopt share_history
 unsetopt no_match
+source ~/.shorter.sh
 
 #------ROS1------#
 export ROS_MASTER_URI=http://localhost:11311
