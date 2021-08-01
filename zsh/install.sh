@@ -11,5 +11,4 @@ read -r -p "Copy zshrc to ~/.zshrc ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
 	cp zshrc ~/.zshrc
-	cp shorter.sh ~/.shorter.sh
 fi

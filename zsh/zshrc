@@ -110,7 +110,7 @@ prompt_context() {
 }
 unsetopt share_history
 unsetopt no_match
-source ~/.shorter.sh
+source ~/.ohrc/shorter.sh
 
 #------ROS1------#
 export ROS_MASTER_URI=http://localhost:11311
@@ -118,8 +118,8 @@ export ROS_HOSTNAME=localhost
 #
 #------ROS2------#
 export ROS_DOMAIN_ID=70
-export CC=clang
-export CXX=clang++
+#export CC=clang
+#export CXX=clang++
 #export ROSCONSOLE_FORMAT='[${severity}] - ${node}: [${time}] ${message}'
 
 alias sr1="source /opt/ros/noetic/setup.zsh"
