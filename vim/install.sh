@@ -20,7 +20,7 @@ then
 	echo "Install YouCompleteMe"
 	sudo apt install build-essential cmake vim-nox python3-dev
 	cd ~/.vim/bundle/YouCompleteMe
-	python3 install.py --all
+	python3 install.py --all --clangd-complter
 fi
 echo "Set git conflicted"
 git config --global alias.conflicted '!vim +Conflicted'
