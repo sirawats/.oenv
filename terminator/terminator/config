@@ -1,4 +1,6 @@
 [global_config]
+  inactive_color_offset = 0.9507575757575758
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
   suppress_multiple_term_dialog = True
 [keybindings]
   switch_to_tab_1 = <Alt>1
@@ -7,30 +9,54 @@
   switch_to_tab_4 = <Alt>4
   switch_to_tab_5 = <Alt>5
   edit_tab_title = <Primary><Alt>s
+  next_profile = <Primary><Alt>2
+  previous_profile = <Primary><Alt>1
 [profiles]
   [[default]]
+    background_color = "#24272b"
+    background_darkness = 0.85
     cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font Mono 12
     foreground_color = "#ffffff"
     show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
   [[h0]]
-    background_color = "#392626"
     cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font Mono 12
     foreground_color = "#ffffff"
     show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
   [[h1]]
+    background_color = "#06042d"
     cursor_color = "#aaaaaa"
-    foreground_color = "#00ff00"
+    font = UbuntuMono Nerd Font Mono 12
+    foreground_color = "#eeeeec"
     show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
   [[h2]]
     background_color = "#17302c"
     cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font Mono 12
     foreground_color = "#ffffff"
     show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
   [[h3]]
-    background_color = "#130c48"
+    background_color = "#222627"
     cursor_color = "#aaaaaa"
-    foreground_color = "#ffffff"
+    font = UbuntuMono Nerd Font Mono 12
+    foreground_color = "#bf3f3f"
     show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child0]]]
@@ -48,7 +74,7 @@
       type = Terminal
       parent = child0
       order = 0
-      profile = h0
+      profile = default
       uuid = d52de91b-5387-49d1-8b3d-00bd05fa057e
   [[l1]]
     [[[child0]]]
@@ -82,4 +108,46 @@
       profile = h1
       uuid = d7a74639-783c-47f4-9b0b-6b5a177171d2
       command = ""
+  [[l2]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 3478:503
+      maximised = False
+      fullscreen = False
+      size = 1371, 774
+      title = oey@oey-MSI:~
+      last_active_term = d52de91b-5387-49d1-8b3d-00bd05fa057e
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 381
+      ratio = 0.49544863459037713
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = h0
+      uuid = d52de91b-5387-49d1-8b3d-00bd05fa057e
+    [[[child3]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 689
+      ratio = 0.5043923865300146
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = h2
+      uuid = a16fb1b1-6db8-48e0-b176-b6a21389a536
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = h1
+      uuid = 36c1cf32-0764-4a19-87f0-a8023c17986b
 [plugins]
