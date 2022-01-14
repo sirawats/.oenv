@@ -16,7 +16,7 @@ _______________________
 #### 1. Install Neovim > v5.0
 ##### Method A : Appimage
 ```
-curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
 ```
