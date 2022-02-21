@@ -52,7 +52,15 @@
     background_color = "#222627"
     cursor_color = "#aaaaaa"
     font = UbuntuMono Nerd Font Mono 12
-    foreground_color = "#bf3f3f"
+    foreground_color = "#fc8080"
+    show_titlebar = False
+    scrollback_lines = 5000
+    palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
+    use_system_font = False
+  [[h4]]
+    cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font Mono 12
+    foreground_color = "#fc8080"
     show_titlebar = False
     scrollback_lines = 5000
     palette = "#2e3436:#ca2020:#19b829:#d19f39:#2793e2:#9b59b6:#1abc9c:#fcfcfc:#555753:#bf3f3f:#1cdc9a:#fdbc4b:#3daee9:#8e44ad:#16a085:#ffffff"
