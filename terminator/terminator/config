@@ -9,8 +9,9 @@
   switch_to_tab_4 = <Alt>4
   switch_to_tab_5 = <Alt>5
   edit_tab_title = <Primary><Alt>s
-  next_profile = <Primary><Alt>2
-  previous_profile = <Primary><Alt>1
+  next_profile = F2
+  previous_profile = F1
+  help = None
 [profiles]
   [[default]]
     background_color = "#24272b"
