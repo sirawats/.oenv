@@ -8,8 +8,7 @@ alias Mcolcon="colcon build --packages-select $1"
 ## Docker
 
 Mdocker_rmi_none () {
-  local list=$(docker images -a --filter "dangling=true" -q --no-trunc)
-  docker rmi $list -f
+  bash -c 'docker rmi $(docker images -a --filter 'dangling=true' -q --no-trunc) -f'
 }
 
 
