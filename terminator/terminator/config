@@ -27,7 +27,7 @@
     background_color = "#24272b"
     background_darkness = 0.85
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollback_lines = 5000
@@ -35,7 +35,7 @@
     use_system_font = False
   [[h0]]
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollback_lines = 5000
@@ -44,7 +44,7 @@
   [[h1]]
     background_color = "#06042d"
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#eeeeec"
     show_titlebar = False
     scrollback_lines = 5000
@@ -53,7 +53,7 @@
   [[h2]]
     background_color = "#17302c"
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollback_lines = 5000
@@ -62,7 +62,7 @@
   [[h3]]
     background_color = "#222627"
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#fc8080"
     show_titlebar = False
     scrollback_lines = 5000
@@ -70,7 +70,7 @@
     use_system_font = False
   [[h4]]
     cursor_color = "#aaaaaa"
-    font = UbuntuMono Nerd Font Mono 12
+    font = JetBrainsMono NF 11
     foreground_color = "#fc8080"
     show_titlebar = False
     scrollback_lines = 5000
