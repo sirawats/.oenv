@@ -50,3 +50,7 @@ lvim +PackerSync
 sudo ln -s ~/.local/share/lunarvim /root/.local/share/lunarvim  
 sudo ln -s ~/.config/lvim  /root/.config/lvim
 ```
+
+## Awesome GNOME-extension
+1. [sound-output-device-chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/) 
+2. [dash-to-dock](https://extensions.gnome.org/extension/307/dash-to-dock/) 
