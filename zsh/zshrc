@@ -145,11 +145,13 @@ alias sr2="source /opt/ros/foxy/setup.zsh"
 alias srg="source /opt/ros/galactic/setup.zsh"
 alias sr2o="source ~/oru_ws/install/setup.zsh"
 alias sr2m="source ~/ros2/moveit2_ws/install/setup.zsh"
-alias ssho="ssh nucrobot@192.168.0.185"
-alias sshec21="ssh ubuntu@54.255.112.118 -i ~/.aws-keypair/o-robotics-test-sandbox.pem"
-alias sshec22="ssh ubuntu@54.254.143.246 -i ~/.aws-keypair/o-robotics-test-sandbox.pem"
-alias bunker_id="export ROS_DOMAIN_ID=80"
-#alias conda="~/miniconda3/bin/conda"
+
+EXTRASOURCE=~/.extrasource.zsh
+if [ -f "$FILE" ]; then
+  source EXTRASOURCE
+fi
+
+
 
 # nvm, node.js
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

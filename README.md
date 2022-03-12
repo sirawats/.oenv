@@ -1,4 +1,5 @@
-# .iamlazy-_-
+# .leorc
+my personal setup notes
 
 ## Setup Tmux
 1. https://github.com/tmux-plugins/tpm
