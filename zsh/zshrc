@@ -147,8 +147,8 @@ alias sr2o="source ~/oru_ws/install/setup.zsh"
 alias sr2m="source ~/ros2/moveit2_ws/install/setup.zsh"
 
 EXTRARC=~/.extrarc
-if [ -f "$FILE" ]; then
-  source EXTRARC
+if [ -f "$EXTRARC" ]; then
+  source $EXTRARC
 fi
 
 
