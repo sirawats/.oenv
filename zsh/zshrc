@@ -146,7 +146,7 @@ alias srg="source /opt/ros/galactic/setup.zsh"
 alias sr2o="source ~/oru_ws/install/setup.zsh"
 alias sr2m="source ~/ros2/moveit2_ws/install/setup.zsh"
 
-EXTRARC=~/.extrarc.zsh
+EXTRARC=~/.extrarc
 if [ -f "$FILE" ]; then
   source EXTRARC
 fi
