@@ -1,12 +1,15 @@
 #!/bin/bash
-echo "Install tmux"
+RED="\033[1m\e[31m"
+BLUE="\033[1m\e[34m"
+GREEN="\033[1m\e[32m"
+ENDCOLOR="\e[0m\033[0m"
+echo -e "${BLUE}Install tmux${END}"
 sudo apt install -y tmux
-echo "Install tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-echo "Install .tmux"
+echo -e "${BLUE}Install .tmux${END}"
 cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
-cp ~/.iamlazy-_-/tmux/.tmux.conf.local .
+cp ~/.leorc/tmux/.tmux.conf.local .
+echo -e "${BLUE}Finish!{END}"
 
 

@@ -13,6 +13,7 @@ _______________________
 
 ## lvim (LunarVim)
 
+
 ### Requirements
 #### 1. Install Neovim > v5.0
 ##### Method A : Appimage
