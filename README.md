@@ -1,6 +1,8 @@
 # .leorc
 my personal setup notes
 
+_______________________
+
 ## Tmux
 1. https://github.com/gpakosz/.tmux
 2. [tmux cheatsheet](https://tmuxcheatsheet.com/)
@@ -17,7 +19,7 @@ _______________________
 
 ### Install by script
 ```
-
+bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/lvim/install.sh)
 ```
 
 ### Manual Install
@@ -66,6 +68,7 @@ lvim +PackerSync
 chmod +x ~/.local/bin/lvim
 sudo cp ~/.local/bin/lvim /bin/lvim
 ```
+_______________________
 
 ## Other Stuff
 
