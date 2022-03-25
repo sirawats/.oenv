@@ -11,6 +11,6 @@ cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 curl -o ~/.tmux.conf.local -L https://raw.githubusercontent.com/leossok/.leorc/master/tmux/.tmux.conf.local
-echo -e "${BLUE}Finish!{END}"
+echo -e "${BLUE}Finish!${END}"
 
 
