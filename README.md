@@ -70,6 +70,11 @@ sudo cp ~/.local/bin/lvim /bin/lvim
 ```
 _______________________
 
+## Alacritty Terminal Emulator
+[github](https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu) 
+
+_______________________
+
 ## Other Stuff
 
 ### Setup powerlevel10k for oh-my-zsh
