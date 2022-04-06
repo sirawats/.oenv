@@ -123,7 +123,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "flake8", 
-    extra_args = { "--max-line-length=100", "--ignore=E402"},
+    extra_args = { "--max-line-length=100", "--ignore=E402", "--inline-quotes='\"'"},
     filetypes = { "python" },
   },
   -- {
@@ -144,6 +144,7 @@ linters.setup {
 lvim.plugins = {
     {"sainnhe/sonokai"},
     {"tanvirtin/monokai.nvim"},
+    {"chrisbra/Colorizer"},
     {
         "ray-x/lsp_signature.nvim",
         config = function() require"lsp_signature".on_attach() end,
