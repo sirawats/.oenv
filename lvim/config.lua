@@ -145,7 +145,6 @@ linters.setup {
 lvim.plugins = {
     {"tanvirtin/monokai.nvim"},
     {"lunarvim/darkplus.nvim"},
-    {"chrisbra/Colorizer"},
     {
       "lukas-reineke/indent-blankline.nvim",
       event = "BufRead",
@@ -159,30 +158,22 @@ lvim.plugins = {
         vim.g.indent_blankline_show_current_context = true
         vim.g.indent_blankline_use_treesitter = true
         vim.wo.colorcolumn = "99999"
-        -- vim.g.indent_blankline_context_patterns = {
-        --   "class",
-        --   "return",
-        --   "function",
-        --   "method",
-        --   "^if",
-        --   "^while",
-        --   "jsx_element",
-        --   "^for",
-        --   "^object",
-        --   "^table",
-        --   "block",
-        --   "arguments",
-        --   "if_statement",
-        --   "else_clause",
-        --   "jsx_element",
-        --   "jsx_self_closing_element",
-        --   "try_statement",
-        --   "catch_clause",
-        --   "import_statement",
-        --   "operation_type",
-        -- }
       end
     },
+    {
+      "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup({ "*" }, {
+            RGB = true, -- #RGB hex codes
+            RRGGBB = true, -- #RRGGBB hex codes
+            RRGGBBAA = true, -- #RRGGBBAA hex codes
+            rgb_fn = true, -- CSS rgb() and rgba() functions
+            hsl_fn = true, -- CSS hsl() and hsla() functions
+            css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+            css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+            })
+    end,
+},
     -- {"folke/tokyonight.nvim"},
     -- {
     --   "folke/trouble.nvim",
