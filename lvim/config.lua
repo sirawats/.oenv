@@ -46,15 +46,16 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   name = "+Trouble",
 --   r = { "<cmd>Trouble lsp_references<cr>", "References" },
 --   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+--   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
 --   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -69,6 +70,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "python",
   "typescript",
+  "tsx",
   "css",
   "rust",
   "java",
@@ -83,7 +85,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.automatic_servers_installation = false
 
--- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
+-- ---@usage Select which servers should be configured manually. Requires `:LvimCacheReset` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
 -- vim.list_extend(lvim.lsp.override, { "pyright" })
 
@@ -105,9 +107,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black",
-    extra_args = { "--line-length=100", "--exclude=E402"},
+    extra_args = { "--line-length=130", "--exclude=E402"},
     filetypes = { "python" } },
-  -- { command = "isort", filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
   {
     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "prettier",
@@ -122,17 +124,16 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8", 
-    extra_args = { "--max-line-length=100", "--ignore=E402", "--inline-quotes='\"'"},
-    filetypes = { "python" },
+  { command = "flake8",
+    extra_args = { "--max-line-length=100", "--ignore=E402", "--inline-quotes='\"'" },
+    filetypes = { "python" } },
+  {
+    -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    command = "shellcheck",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    extra_args = { "--severity", "warning" },
   },
-  -- {
-  --   -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-  --   command = "shellcheck",
-  --   ---@usage arguments to pass to the formatter
-  --   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-  --   extra_args = { "--severity", "warning" },
-  -- },
   -- {
   --   command = "codespell",
   --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
@@ -142,23 +143,75 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"sainnhe/sonokai"},
     {"tanvirtin/monokai.nvim"},
+    {"lunarvim/darkplus.nvim"},
     {"chrisbra/Colorizer"},
     {
-        "ray-x/lsp_signature.nvim",
-        config = function() require"lsp_signature".on_attach() end,
-        event = "InsertEnter"
-    }
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufRead",
+      setup = function()
+        vim.g.indentLine_enabled = 1
+        vim.g.indent_blankline_char = "▏"
+        vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+        vim.g.indent_blankline_buftype_exclude = {"terminal"}
+        vim.g.indent_blankline_show_trailing_blankline_indent = false
+        vim.g.indent_blankline_show_first_indent_level = true
+        vim.g.indent_blankline_show_current_context = true
+        vim.g.indent_blankline_use_treesitter = true
+        vim.wo.colorcolumn = "99999"
+        -- vim.g.indent_blankline_context_patterns = {
+        --   "class",
+        --   "return",
+        --   "function",
+        --   "method",
+        --   "^if",
+        --   "^while",
+        --   "jsx_element",
+        --   "^for",
+        --   "^object",
+        --   "^table",
+        --   "block",
+        --   "arguments",
+        --   "if_statement",
+        --   "else_clause",
+        --   "jsx_element",
+        --   "jsx_self_closing_element",
+        --   "try_statement",
+        --   "catch_clause",
+        --   "import_statement",
+        --   "operation_type",
+        -- }
+      end
+    },
+    -- {"folke/tokyonight.nvim"},
+    -- {
+    --   "folke/trouble.nvim",
+    --   cmd = "TroubleToggle",
+    -- },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+-- }
+lvim.builtin.bufferline.indicator_icon = "▎"
+lvim.builtin.bufferline.options.enforce_regular_tabs = true
+lvim.builtin.bufferline.options.always_show_bufferline = true
+lvim.builtin.bufferline.highlights.indicator_selected = {
+      guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
+      guibg = { attribute = "bg", highlight = "Normal" },
 }
+lvim.builtin.treesitter.highlight.enable = true
+
+local components = require "lvim.core.lualine.components"
+local mode = {
+	"mode",
+	fmt = function(str)
+		return "-- " .. str .. " --"
+	end,
+}
+lvim.builtin.lualine.sections.lualine_a = { components.branch, mode }
+lvim.builtin.lualine.sections.lualine_b = { components.diagnostics, components.diff }
+lvim.builtin.lualine.sections.lualine_c = { components.python_env }
+lvim.builtin.lualine.sections.lualine_x = { components.treesitter, components.lsp, components.filetype }
+lvim.builtin.lualine.options.theme = "darkplus"
