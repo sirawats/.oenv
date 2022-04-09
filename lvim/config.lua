@@ -12,6 +12,10 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "monokai_pro"
+vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+vim.opt.clipboard = "" -- not allows, set to unnamedplus to allow
+
+
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -107,7 +111,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black",
-    extra_args = { "--line-length=130", "--exclude=E402"},
+    extra_args = { "--line-length=120", "--exclude=E402"},
     filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
   {
@@ -125,7 +129,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "flake8",
-    extra_args = { "--max-line-length=100", "--ignore=E402", "--inline-quotes='\"'" },
+    extra_args = { "--max-line-length=130", "--ignore=E402", "--inline-quotes='\"'" },
     filetypes = { "python" } },
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
