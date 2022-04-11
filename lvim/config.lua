@@ -177,7 +177,16 @@ lvim.plugins = {
             css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
             })
     end,
-},
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      ft = "markdown",
+      config = function()
+        vim.g.mkdp_auto_start = 1
+      end,
+    },
+
     -- {"folke/tokyonight.nvim"},
     -- {
     --   "folke/trouble.nvim",
