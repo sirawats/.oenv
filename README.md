@@ -26,13 +26,13 @@ bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/lvim/inst
 #### 1. Install Neovim > v5.0
 ##### Method A : Appimage
 ```
-curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
+curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
 ```
 ##### Method B : Extract tar
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.5.0/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
 sudo tar -xzvf nvim-linux64.tar.gz -C /opt/
 sudo ln -s /opt/nvim-linux64/bin/nvim /bin/nvim
 ```
