@@ -62,7 +62,7 @@ bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/
 
 #### 5. Install config
 ```
-curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.iamlazy-_-/master/lvim/config.lua
+curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.leorc/master/lvim/config.lua
 lvim +PackerSync
 
 chmod +x ~/.local/bin/lvim
