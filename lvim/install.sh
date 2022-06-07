@@ -5,7 +5,7 @@ GREEN="\e[1;32m"
 END="\e[0m"
 
 echo -e "${BLUE}Download nvim.appimage${END}"
-curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
+curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
 
@@ -13,8 +13,8 @@ echo -e "${BLUE}Install nvm and nodejs${END}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install 14
-nvm use 14
+nvm install 16
+nvm use 16
 
 echo -e "${BLUE}Install python3-pip${END}"
 sudo apt install python3-pip
