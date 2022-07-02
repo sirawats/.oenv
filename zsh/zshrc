@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # }
 unsetopt share_history
 unsetopt no_match
-source ~/.iamlazy-_-/zsh/shorter.sh
+source ~/.leorc/zsh/shorter.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

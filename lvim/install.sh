@@ -25,7 +25,7 @@ chmod +x ~/.local/bin/lvim
 sudo cp ~/.local/bin/lvim /bin/lvim
 
 echo -e "${BLUE}Copy config${END}"
-curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.iamlazy-_-/master/lvim/config.lua
+curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.leorc/master/lvim/config.lua
 lvim +PackerSync
 
 
