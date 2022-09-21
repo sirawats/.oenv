@@ -20,7 +20,7 @@ echo -e "${BLUE}Install python3-pip${END}"
 sudo apt install python3-pip
 
 echo -e "${BLUE}Install LunarVim${END}"
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/leossok/lunarvim/master/utils/installer/install.sh)
 chmod +x ~/.local/bin/lvim
 sudo cp ~/.local/bin/lvim /bin/lvim
 
