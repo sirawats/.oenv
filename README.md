@@ -57,7 +57,7 @@ sudo apt install python3-pip
 repo: https://github.com/LunarVim/LunarVim
 **One Command Install**
 ```
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/leossok/lunarvim/master/utils/installer/install.sh)
 ```
 
 #### 5. Install config
