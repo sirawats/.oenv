@@ -5,7 +5,7 @@ GREEN="\e[1;32m"
 END="\e[0m"
 
 echo -e "${BLUE}Download nvim.appimage${END}"
-curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
+curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
 
@@ -20,7 +20,7 @@ echo -e "${BLUE}Install python3-pip${END}"
 sudo apt install python3-pip
 
 echo -e "${BLUE}Install LunarVim${END}"
-bash <(curl -s https://raw.githubusercontent.com/leossok/lunarvim/master/utils/installer/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 chmod +x ~/.local/bin/lvim
 sudo cp ~/.local/bin/lvim /bin/lvim
 
