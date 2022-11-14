@@ -261,4 +261,9 @@ lvim.builtin.lualine.sections.lualine_b = { components.diagnostics, components.d
 lvim.builtin.lualine.sections.lualine_c = { components.python_env }
 lvim.builtin.lualine.sections.lualine_x = { components.treesitter, components.lsp, components.filetype }
 lvim.builtin.lualine.options.theme = "darkplus"
+vim.api.nvim_command([[
+    augroup ChangeBackgroudColour
+        autocmd colorscheme * :hi normal guibg=#202225
+    augroup END
+]])
 
