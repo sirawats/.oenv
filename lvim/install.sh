@@ -8,13 +8,22 @@ echo -e "${BLUE}Download nvim.appimage${END}"
 curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
+sudo apt-get install fuse libfuse2
 
-echo -e "${BLUE}Install nvm and nodejs${END}"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install 16
-nvm use 16
+
+
+
+read -r -p "${BLUE}Install fm, and nodejs [y/N]${END}" response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    curl -fsSL https://fnm.vercel.app/install | bash
+    # fnm
+    export PATH="/home/leossok/.local/share/fnm:$PATH"
+    eval "`fnm env`"
+    fnm install 18
+    fnm use 18
+fi
+
 
 echo -e "${BLUE}Install python3-pip${END}"
 sudo apt install python3-pip
@@ -27,7 +36,3 @@ sudo cp ~/.local/bin/lvim /bin/lvim
 echo -e "${BLUE}Copy config${END}"
 curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.leorc/master/lvim/config.lua
 lvim +PackerSync
-
-
-
-

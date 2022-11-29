@@ -11,7 +11,17 @@ _______________________
 ```
 bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/tmux/install.sh)
 ```
+_______________________
 
+## Zsh + oh-my-zsh
+### Install by script
+bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/zsh/install.sh)
+
+_______________________
+
+## Kitty Terminal
+1. https://sw.kovidgoyal.net/kitty/binary/
+bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/zsh/install.sh)
 
 _______________________
 
@@ -39,13 +49,14 @@ sudo ln -s /opt/nvim-linux64/bin/nvim /bin/nvim
 
 
 
-#### 2. Install nvm and nodejs
+#### 2. Install fnm and nodejs
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install 14
-nvm use 14
+curl -fsSL https://fnm.vercel.app/install | bash
+# fnm
+export PATH="/home/leossok/.local/share/fnm:$PATH"
+eval "`fnm env`"
+fnm install 18
+fnm use 18
 ```
 
 #### 3. Install pip
