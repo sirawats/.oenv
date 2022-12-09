@@ -1,0 +1,7 @@
+alt - 1 : open -akitty
+alt - 2 : open -a"Google Chrome"
+shift + alt - 2 : open -a"Google Chrome" --new
+alt - 3 : open -a"Visual Studio Code"
+shift + alt - 3 : open -a"Visual Studio Code" --new
+alt - 4 : open -aFinder
+shift + alt - 4 : open -aFinder --new

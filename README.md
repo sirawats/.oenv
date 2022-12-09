@@ -95,3 +95,28 @@ _______________________
 1. [sound-output-device-chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/) 
 2. [dash-to-dock](https://extensions.gnome.org/extension/307/dash-to-dock/) 
 
+_______________________
+
+# MacOS
+## 1. skhd : simple hotkey daemon (similar to Karabiner)
+**github:** https://github.com/koekeishiya/skhd
+### Install
+```
+git clone https://github.com/koekeishiya/skhd
+cd skhd
+make install
+sudo cp ./bin/skhd /usr/local/bin/skhd
+launchctl load ./examples/com.koekeishiya.skhd.plist
+launchctl start com.koekeishiya.skhd.plist
+```
+### Configure
+```
+cp ~/.leorc/skhd/skhdrc ~/.skhdrc
+```
+## 1. yabai : tilling window manager (similar to Amethyst/Magnet)
+**github:** https://github.com/koekeishiya/yabai
+### Install
+```
+brew install koekeishiya/formulae/yabai
+brew services start yabai
+```
