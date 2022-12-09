@@ -7,8 +7,11 @@ alt - 4 : open -aFinder
 shift + alt - 4 : open -aFinder --new
 shift + ctrl - escape : open -a 'Activity Monitor.app'
 
+shift + alt - z : yabai -m window --focus recent
 shift + alt - left : yabai -m window --focus prev
 shift + alt - right : yabai -m window --focus next
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
 shift + alt - h : yabai -m window --warp recent
 shift + alt - s : yabai -m window --toggle split
+
+shift + alt - d : yabai -m window --display recent
