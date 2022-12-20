@@ -95,6 +95,14 @@ _______________________
 1. [sound-output-device-chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/) 
 2. [dash-to-dock](https://extensions.gnome.org/extension/307/dash-to-dock/) 
 
+## Configure hotkey for dash-to-dock
+```
+gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-5 "['<Super>z']"
+gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-6 "['<Super>x']"
+gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-7 "['<Super>c']"
+gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-8 "['<Super>v']"
+```
+
 _______________________
 
 # MacOS
