@@ -14,4 +14,4 @@ Mdocker_rmi_none () {
 
 ## Python
 alias Mpyclean="find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete"
-alias Mpyaddpath="export PYTHONPATH=\$PYTHONPATH:."
+alias Mpyaddpath="export PYTHONPATH=\$PYTHONPATH:\$PWD"
