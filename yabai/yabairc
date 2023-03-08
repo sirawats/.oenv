@@ -1,20 +1,45 @@
 #!/usr/bin/env sh
 
+# ==== Rules ====================
+# === LAYER ABROVE ===
+yabai -m rule --add app="^kitty.*$" title="^kitty.*$" layer=above
+# === LAYER NORMAL ===
+# === LAYER BELOW ===
+yabai -m rule --add app="^Microsoft Teams.*$" title="^Microsoft Teams.*$" layer=below
+yabai -m rule --add app="^Slack.*$" title="^Slack.*$" layer=below
 #
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-#
-# see this wiki page for information:
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-#
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
-#
+# === MANAGE OFF ===
+yabai -m rule --add app="^DBeaver.*$" title="^DBeaver.*$" layer=above manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Microsoft Excel$" manage=off
+yabai -m rule --add app="^Microsoft Word$" manage=off
+yabai -m rule --add app="^Microsoft PowerPoint$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^Steam$" manage=off
+yabai -m rule --add app="^LINE$" manage=off
+yabai -m rule --add app="^TIDAL$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
 
-# global settings
+yabai -m rule --add app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add app="^macfeh$" manage=off
+yabai -m rule --add app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add app="^System Settings$" title=".*" manage=off
+yabai -m rule --add app="^System Setting$" title=".*" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^mpv$" manage=off
+yabai -m rule --add title="Software Update" manage=off
+yabai -m rule --add app="System Information" title="About This Mac" manage=off
+
+
+# ==== Global Settings ====================
 yabai -m config                                 \
     mouse_follows_focus          on            \
-    focus_follows_mouse          autoraise            \
+    focus_follows_mouse          off            \
     window_origin_display        default        \
     window_placement             second_child   \
     window_topmost               off            \
