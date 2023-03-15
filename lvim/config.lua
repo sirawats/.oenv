@@ -10,8 +10,11 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+lvim.format_on_save = false
 lvim.colorscheme = "monokai_pro"
+vim.opt.cmdheight = 1
+vim.opt.clipboard = ""
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -131,9 +134,14 @@ lvim.builtin.treesitter.highlight.enable = true
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black",
-    extra_args = { "--line-length=120", "--exclude=E402"},
+  -- { command = "black",
+  --   extra_args = { "--line-length=120", "--exclude=E402"},
+  --   filetypes = { "python" } },
+  { command = "autopep8",
+    extra_args = { "--max-line-length","140", "--ignore","E402"},
     filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
+
   { command = "isort", filetypes = { "python" } },
   {
     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -152,6 +160,7 @@ linters.setup {
   { command = "flake8",
     extra_args = { "--max-line-length=130", "--ignore=E402", "--inline-quotes='\"'" },
     filetypes = { "python" } },
+
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "shellcheck",
@@ -167,18 +176,12 @@ linters.setup {
 }
 
 -- Additional Plugins
-lvim.plugins = {
-    {"tanvirtin/monokai.nvim"},
-    {"lunarvim/bigfile.nvim"},
-    {
-      "iamcco/markdown-preview.nvim",
-      run = "cd app && npm install",
-      ft = "markdown",
-      config = function()
-        vim.g.mkdp_auto_start = 1
-      end,
-    },
-}
+-- lvim.plugins = {
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
@@ -193,5 +196,77 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+lvim.plugins = {
+    {"tanvirtin/monokai.nvim"},
+    {"lunarvim/darkplus.nvim"},
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufRead",
+      setup = function()
+        vim.g.indentLine_enabled = 1
+        vim.g.indent_blankline_char = "▏"
+        vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+        vim.g.indent_blankline_buftype_exclude = {"terminal"}
+        vim.g.indent_blankline_show_trailing_blankline_indent = false
+        vim.g.indent_blankline_show_first_indent_level = true
+        vim.g.indent_blankline_show_current_context = true
+        vim.g.indent_blankline_use_treesitter = true
+        vim.wo.colorcolumn = "99999"
+      end
+    },
+    {
+      "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup({ "*" }, {
+            RGB = true, -- #RGB hex codes
+            RRGGBB = true, -- #RRGGBB hex codes
+            RRGGBBAA = true, -- #RRGGBBAA hex codes
+            rgb_fn = true, -- CSS rgb() and rgba() functions
+            hsl_fn = true, -- CSS hsl() and hsla() functions
+            css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+            css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+            })
+    end,
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      ft = "markdown",
+      config = function()
+        vim.g.mkdp_auto_start = 1
+      end,
+    },
 
+    -- {"folke/tokyonight.nvim"},
+    -- {
+    --   "folke/trouble.nvim",
+    --   cmd = "TroubleToggle",
+    -- },
+}
+lvim.builtin.bufferline.indicator_icon = "▎"
+lvim.builtin.bufferline.options.enforce_regular_tabs = true
+lvim.builtin.bufferline.options.always_show_bufferline = true
+lvim.builtin.bufferline.highlights.indicator_selected = {
+      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
+      bg = { attribute = "bg", highlight = "Normal" },
+}
+lvim.builtin.treesitter.highlight.enable = true
+
+local components = require "lvim.core.lualine.components"
+local mode = {
+	"mode",
+	fmt = function(str)
+		return "-- " .. str .. " --"
+	end,
+}
+lvim.builtin.lualine.sections.lualine_a = { components.branch, mode }
+lvim.builtin.lualine.sections.lualine_b = { components.diagnostics, components.diff }
+lvim.builtin.lualine.sections.lualine_c = { components.python_env }
+lvim.builtin.lualine.sections.lualine_x = { components.treesitter, components.lsp, components.filetype }
+lvim.builtin.lualine.options.theme = "darkplus"
+vim.api.nvim_command([[
+    augroup ChangeBackgroudColour
+        autocmd colorscheme * :hi normal guibg=#202225
+    augroup END
+]])
 
