@@ -14,6 +14,7 @@ lvim.format_on_save = false
 lvim.colorscheme = "monokai_pro"
 vim.opt.cmdheight = 1
 vim.opt.clipboard = ""
+lvim.transparent_window = true
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -197,37 +198,9 @@ linters.setup {
 --   end,
 -- })
 lvim.plugins = {
-    {"tanvirtin/monokai.nvim"},
+    {"ohsirawat/monokai.nvim"},
+    {"lunarvim/bigfile.nvim"},
     {"lunarvim/darkplus.nvim"},
-    {
-      "lukas-reineke/indent-blankline.nvim",
-      event = "BufRead",
-      setup = function()
-        vim.g.indentLine_enabled = 1
-        vim.g.indent_blankline_char = "▏"
-        vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-        vim.g.indent_blankline_buftype_exclude = {"terminal"}
-        vim.g.indent_blankline_show_trailing_blankline_indent = false
-        vim.g.indent_blankline_show_first_indent_level = true
-        vim.g.indent_blankline_show_current_context = true
-        vim.g.indent_blankline_use_treesitter = true
-        vim.wo.colorcolumn = "99999"
-      end
-    },
-    {
-      "norcalli/nvim-colorizer.lua",
-      config = function()
-        require("colorizer").setup({ "*" }, {
-            RGB = true, -- #RGB hex codes
-            RRGGBB = true, -- #RRGGBB hex codes
-            RRGGBBAA = true, -- #RRGGBBAA hex codes
-            rgb_fn = true, -- CSS rgb() and rgba() functions
-            hsl_fn = true, -- CSS hsl() and hsla() functions
-            css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-            css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-            })
-    end,
-    },
     {
       "iamcco/markdown-preview.nvim",
       run = "cd app && npm install",
@@ -236,12 +209,6 @@ lvim.plugins = {
         vim.g.mkdp_auto_start = 1
       end,
     },
-
-    -- {"folke/tokyonight.nvim"},
-    -- {
-    --   "folke/trouble.nvim",
-    --   cmd = "TroubleToggle",
-    -- },
 }
 lvim.builtin.bufferline.indicator_icon = "▎"
 lvim.builtin.bufferline.options.enforce_regular_tabs = true
@@ -265,8 +232,8 @@ lvim.builtin.lualine.sections.lualine_c = { components.python_env }
 lvim.builtin.lualine.sections.lualine_x = { components.treesitter, components.lsp, components.filetype }
 lvim.builtin.lualine.options.theme = "darkplus"
 vim.api.nvim_command([[
-    augroup ChangeBackgroudColour
-        autocmd colorscheme * :hi normal guibg=#202225
+    augroup ChangeBackgroudColor
+        autocmd colorscheme * :hi linenr guibg=#
     augroup END
 ]])
 
