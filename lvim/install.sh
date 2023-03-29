@@ -45,6 +45,7 @@ function download_nvim() {
 			sudo cp -r /tmp/nvim-linux64/share/* /usr/share/
 			rm nvim-linux64.tar.gz
 		elif [ "$ARCHITECTURE" = "aarch64" ]; then
+      sudo apt install libtool-bin
 
 			# Download neovim-0.8.3.tar.gz
 			wget -O neovim-0.8.3.tar.gz https://github.com/neovim/neovim/archive/refs/tags/v0.8.3.tar.gz
