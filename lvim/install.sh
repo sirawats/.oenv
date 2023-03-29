@@ -112,7 +112,7 @@ function install_lunarvim() {
 function copy_config() {
     echo -e "${BLUE}Copy config${END}"
     mkdir -p ~/.config/lvim
-    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.leorc/master/lvim/config.lua
+    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawrat/.oh-dev-tools/master/lvim/config.lua
 
 }
 
