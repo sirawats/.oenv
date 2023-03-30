@@ -198,6 +198,7 @@ linters.setup {
 --   end,
 -- })
 lvim.plugins = {
+    {"github/copilot.vim"},
     {"ohsirawat/monokai.nvim"},
     {"lunarvim/bigfile.nvim"},
     {"lunarvim/darkplus.nvim"},
