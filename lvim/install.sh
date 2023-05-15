@@ -28,7 +28,7 @@ function install_dependencies() {
 }
 
 function download_nvim() {
-    echo -e "${BLUE}Install neovim v0.8.3 [y/N]${END}"
+    echo -e "${BLUE}Install neovim v0.9.0 [y/N]${END}"
 	if [[ $INSTALL_ALL == "-y" ]]; then
 		response="y"
 	else
@@ -38,7 +38,7 @@ function download_nvim() {
 		ARCHITECTURE="$(uname -m)"
 
 		if [ "$ARCHITECTURE" = "x86_64" ]; then
-			wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.tar.gz
+			wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
 			sudo tar -xzf nvim-linux64.tar.gz -C /tmp/
 			sudo cp -r /tmp/nvim-linux64/bin/* /usr/bin/
 			sudo cp -r /tmp/nvim-linux64/lib/* /usr/lib/
@@ -47,13 +47,13 @@ function download_nvim() {
 		elif [ "$ARCHITECTURE" = "aarch64" ]; then
       sudo apt install libtool-bin
 
-			# Download neovim-0.8.3.tar.gz
-			wget -O neovim-0.8.3.tar.gz https://github.com/neovim/neovim/archive/refs/tags/v0.8.3.tar.gz
-			tar -xzf neovim-0.8.3.tar.gz
-			cd neovim-0.8.3
+			# Download neovim-0.9.0.tar.gz
+			wget -O neovim-0.9.0.tar.gz https://github.com/neovim/neovim/archive/refs/tags/v0.9.0.tar.gz
+			tar -xzf neovim-0.9.0.tar.gz
+			cd neovim-0.9.0
 			sudo apt install -y gettext
 			make CMAKE_INSTALL_PREFIX=/usr/local install
-			rm ../neovim-0.8.3.tar.gz
+			rm ../neovim-0.9.0.tar.gz
 		else
 			echo -e "${RED}Unsupported CPU architecture. Please download and install Neovim manually.${END}"
 			exit 1
@@ -103,7 +103,7 @@ function install_fnm_nodejs() {
 
 function install_lunarvim() {
     echo -e "${BLUE}Install LunarVim${END}"
-	LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh) -y --no-install-dependencies &&
+    LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 	
     chmod +x ~/.local/bin/lvim
     sudo cp ~/.local/bin/lvim /bin/lvim
