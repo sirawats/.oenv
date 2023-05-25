@@ -1,4 +1,4 @@
-# .leorc
+# .ohenv
 my personal setup notes
 
 _______________________
@@ -7,83 +7,81 @@ _______________________
 1. https://github.com/gpakosz/.tmux
 2. [tmux cheatsheet](https://tmuxcheatsheet.com/)
 
-### Install by script
+**One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/tmux/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/tmux/install.sh)
 ```
 _______________________
 
 ## Zsh + oh-my-zsh
-### Install by script
-bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/zsh/install.sh)
+```
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/zsh/install.sh)
+```
 
 _______________________
 
 ## Kitty Terminal
-1. https://sw.kovidgoyal.net/kitty/binary/
-bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/zsh/install.sh)
+**website:** https://sw.kovidgoyal.net/kitty/binary/
+```
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/zsh/install.sh)
+```
 
 _______________________
 
-## LunarVim (lvim)
+## LunarVim  (IDE)
 
-### Install by script
+**One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/leossok/.leorc/master/lvim/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/lvim/install.sh)
 ```
 
-### Manual Install
-#### 1. Install Neovim > v5.0
-##### Method A : Appimage
+#### Manual Step
+##### 1. Install neovim (> v9.0)
+**(Option A.)** [Ubuntu] Appimage
 ```
-curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim.appimage
+curl -o ~/nvim.appimage -L https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
 chmod u+x ~/nvim.appimage
 sudo ln -s ~/nvim.appimage /bin/nvim
 ```
-##### Method B : Extract tar
+**(Option B.)** [Ubuntu] Extract tar
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
 sudo tar -xzvf nvim-linux64.tar.gz -C /opt/
 sudo ln -s /opt/nvim-linux64/bin/nvim /bin/nvim
 ```
+**(Option C.)** [MacOS] Brew
+```
+brew install neovim
+```
 
-
-
-#### 2. Install fnm and nodejs
+##### 2. Install fnm and nodejs
 ```
 curl -fsSL https://fnm.vercel.app/install | bash
 # fnm
-export PATH="/home/leossok/.local/share/fnm:$PATH"
+export PATH="/home/ohsirawat/.local/share/fnm:$PATH"
 eval "`fnm env`"
 fnm install 18
 fnm use 18
 ```
 
-#### 3. Install pip
+##### 3. Install pip
 ```
 sudo apt install python3-pip
 ```
 
-#### 4. Install LunarVim
-repo: https://github.com/LunarVim/LunarVim
-**One Command Install**
+##### 4. Install LunarVim
 ```
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 ```
 
-#### 5. Install config
+##### 5. Copy config
 ```
-curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.leorc/master/lvim/config.lua
-lvim +PackerSync
+curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawat/.ohenv/master/lvim/config.lua
+lvim +Lazy
 
 chmod +x ~/.local/bin/lvim
 sudo cp ~/.local/bin/lvim /bin/lvim
 ```
-_______________________
-
-## Alacritty Terminal Emulator
-[github](https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu) 
-
 _______________________
 
 ## Other Stuff
@@ -119,7 +117,7 @@ launchctl start com.koekeishiya.skhd.plist
 ```
 ### Configure
 ```
-cp ~/.leorc/skhd/skhdrc ~/.skhdrc
+cp ~/.ohenv/skhd/skhdrc ~/.skhdrc
 ```
 ## 1. yabai : tilling window manager (similar to Amethyst/Magnet)
 **github:** https://github.com/koekeishiya/yabai
