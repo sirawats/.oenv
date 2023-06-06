@@ -15,6 +15,8 @@ alias @colcon="colcon build --packages-select $1"
 ## Python
 alias @py-clean="find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete"
 alias @py-addpath="export PYTHONPATH=\$PYTHONPATH:\$PWD"
+alias @py-activate="source venv/bin/activate"
+alias @py-deactivate="deactivate"
 
 function @env-humble() {
   if [ $# -eq 0 ] || [ "$1" == "exec" ]; then
