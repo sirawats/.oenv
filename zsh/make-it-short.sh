@@ -17,6 +17,8 @@ alias @py-clean="find . -type f -name '*.py[co]' -delete -o -type d -name __pyca
 alias @py-addpath="export PYTHONPATH=\$PYTHONPATH:\$PWD"
 alias @py-activate="source venv/bin/activate"
 alias @py-deactivate="deactivate"
+alias @conda-activate="conda activate ./venv"
+alias @conda-deactivate="conda deactivate"
 
 function @env-humble() {
   if [ $# -eq 0 ] || [ "$1" == "exec" ]; then
