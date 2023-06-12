@@ -17,6 +17,7 @@ alias @py-clean="find . -type f -name '*.py[co]' -delete -o -type d -name __pyca
 alias @py-addpath="export PYTHONPATH=\$PYTHONPATH:\$PWD"
 alias @py-activate="source venv/bin/activate"
 alias @py-deactivate="deactivate"
+alias @conda-create="conda create --prefix venv python=$1"
 alias @conda-activate="conda activate ./venv"
 alias @conda-deactivate="conda deactivate"
 
