@@ -1,4 +1,4 @@
-# .ohenv
+# .oenv
 my personal setup notes
 
 _______________________
@@ -9,13 +9,13 @@ _______________________
 
 **One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/tmux/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/tmux/install.sh)
 ```
 _______________________
 
 ## Zsh + oh-my-zsh
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/zsh/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/zsh/install.sh)
 ```
 
 _______________________
@@ -23,7 +23,7 @@ _______________________
 ## Kitty Terminal
 **website:** https://sw.kovidgoyal.net/kitty/binary/
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/zsh/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/zsh/install.sh)
 ```
 
 _______________________
@@ -32,7 +32,7 @@ _______________________
 
 **One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.ohenv/master/lvim/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/lvim/install.sh)
 ```
 
 #### Manual Step
@@ -76,7 +76,7 @@ LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 
 ##### 5. Copy config
 ```
-curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawat/.ohenv/master/lvim/config.lua
+curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawat/.oenv/master/lvim/config.lua
 lvim +Lazy
 
 chmod +x ~/.local/bin/lvim
@@ -117,7 +117,7 @@ launchctl start com.koekeishiya.skhd.plist
 ```
 ### Configure
 ```
-cp ~/.ohenv/skhd/skhdrc ~/.skhdrc
+cp ~/.oenv/skhd/skhdrc ~/.skhdrc
 ```
 ## 1. yabai : tilling window manager (similar to Amethyst/Magnet)
 **github:** https://github.com/koekeishiya/yabai
