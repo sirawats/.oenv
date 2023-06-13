@@ -9,13 +9,13 @@ _______________________
 
 **One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/tmux/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/o-sirawat/.oenv/master/tmux/install.sh)
 ```
 _______________________
 
 ## Zsh + oh-my-zsh
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/zsh/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/o-sirawat/.oenv/master/zsh/install.sh)
 ```
 
 _______________________
@@ -23,7 +23,7 @@ _______________________
 ## Kitty Terminal
 **website:** https://sw.kovidgoyal.net/kitty/binary/
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/zsh/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/o-sirawat/.oenv/master/zsh/install.sh)
 ```
 
 _______________________
@@ -32,7 +32,7 @@ _______________________
 
 **One script:**
 ```
-bash <(curl -s https://raw.githubusercontent.com/ohsirawat/.oenv/master/lvim/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/o-sirawat/.oenv/master/lvim/install.sh)
 ```
 
 #### Manual Step
@@ -58,7 +58,7 @@ brew install neovim
 ```
 curl -fsSL https://fnm.vercel.app/install | bash
 # fnm
-export PATH="/home/ohsirawat/.local/share/fnm:$PATH"
+export PATH="/home/o-sirawat/.local/share/fnm:$PATH"
 eval "`fnm env`"
 fnm install 18
 fnm use 18
@@ -76,7 +76,7 @@ LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 
 ##### 5. Copy config
 ```
-curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawat/.oenv/master/lvim/config.lua
+curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/o-sirawat/.oenv/master/lvim/config.lua
 lvim +Lazy
 
 chmod +x ~/.local/bin/lvim
