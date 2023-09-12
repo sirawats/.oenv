@@ -21,6 +21,9 @@ alias @conda-create="conda create --prefix venv python=$1"
 alias @conda-activate="conda activate ./venv"
 alias @conda-deactivate="conda deactivate"
 
+## General
+alias @pw-gen24="openssl rand -base64 24"
+
 function @env-humble() {
   if [ $# -eq 0 ] || [ "$1" == "exec" ]; then
     bash ~/.oh-dev-tools/docker-dev-env/ros2/humble/exec.sh
