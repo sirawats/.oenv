@@ -98,39 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # }
 unsetopt share_history
 unsetopt no_match
-source ~/.oh-dev-tools/zsh/make-it-short.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=~/.local/bin:$PATH
-
-# ROS1 configuration
-export ROS_MASTER_URI=http://localhost:11311
-export ROS_HOSTNAME=localhost
-
-# ROS2 configuration
-export ROS_DOMAIN_ID=70 #0~250
-#export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-#export FASTRTPS_DEFAULT_PROFILES_FILE="/home/sirawats/fastrtps2.xml"
-#export ROSCONSOLE_FORMAT='[${severity}] - ${node}: [${time}] ${message}'
-
-# C/C++ complier configuration
-#export CC=clang
-#export CXX=clang++
-
-# Additional Path configuration
-export GAZEBO_MODEL_PATH=~/.gazebo/models
-
-# Aliases
-alias sr1="source /opt/ros/noetic/setup.zsh"
-alias sr2="source /opt/ros/foxy/setup.zsh"
-alias srg="source /opt/ros/galactic/setup.zsh"
-alias sr2o="source ~/oru_ws/install/setup.zsh"
-alias sr2m="source ~/ros2/moveit2_ws/install/setup.zsh"
-
-EXTRARC=~/.extrarc
-if [ -f "$EXTRARC" ]; then
-  source $EXTRARC
-fi
 
 
