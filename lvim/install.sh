@@ -1,19 +1,25 @@
 #!/bin/bash
-
-set -e
-
-RED="\e[1;31m"
-BLUE="\e[1;34m"
-GREEN="\e[1;32m"
-END="\e[0m"
-
-INSTALL_ALL="$1"
+RED=$'\e[1;31m'
+BLUE=$'\e[1;34m'
+GREEN=$'\e[1;32m'
+END=$'\e[0m'
 
 
+read -r -p "${BLUE}Install dependencies (git, zsh, fonts-powerline) [y/N]${END}" response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+  sudo apt update
+  sudo apt install -y zsh fonts-powerline git
+fi
+
+
+
+# ---
 
 function install_dependencies() {
-    echo -e "${BLUE}Install dependencies${END}"
-    echo -e "${BLUE}-- python3-pip, wget, curl, unzip${END}"
+  read -r -p "${BLUE}Install dependencies (python3-pip, wget, curl, unzip) [y/N]${END}" response
+  if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+  then
     if [ -x "$(command -v apt)" ]; then
         sudo apt update
         sudo apt install -y python3-pip wget curl unzip
@@ -25,20 +31,16 @@ function install_dependencies() {
         echo -e "${RED}Package manager not supported. Please install python3-pip, wget, curl, and unzip manually.${END}"
         exit 1
     fi
+  fi
 }
 
 function download_nvim() {
-    echo -e "${BLUE}Install neovim v0.9.0 [y/N]${END}"
-	if [[ $INSTALL_ALL == "-y" ]]; then
-		response="y"
-	else
-		read response
-	fi
+  read -r -p "${BLUE}Install neovim v0.9.4 [y/N]${END}" response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 		ARCHITECTURE="$(uname -m)"
 
 		if [ "$ARCHITECTURE" = "x86_64" ]; then
-			wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
+			wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 			sudo tar -xzf nvim-linux64.tar.gz -C /tmp/
 			sudo cp -r /tmp/nvim-linux64/bin/* /usr/bin/
 			sudo cp -r /tmp/nvim-linux64/lib/* /usr/lib/
@@ -48,12 +50,12 @@ function download_nvim() {
       sudo apt install libtool-bin
 
 			# Download neovim-0.9.0.tar.gz
-			wget -O neovim-0.9.0.tar.gz https://github.com/neovim/neovim/archive/refs/tags/v0.9.0.tar.gz
-			tar -xzf neovim-0.9.0.tar.gz
-			cd neovim-0.9.0
+			wget -O neovim-0.9.4.tar.gz https://github.com/neovim/neovim/archive/refs/tags/v0.9.4.tar.gz
+			tar -xzf neovim-0.9.4.tar.gz
+			cd neovim-0.9.4
 			sudo apt install -y gettext
 			make CMAKE_INSTALL_PREFIX=/usr/local install
-			rm ../neovim-0.9.0.tar.gz
+			rm ../neovim-0.9.4.tar.gz
 		else
 			echo -e "${RED}Unsupported CPU architecture. Please download and install Neovim manually.${END}"
 			exit 1
@@ -63,12 +65,7 @@ function download_nvim() {
 }
 
 function install_fnm_nodejs() {
-    echo -e "${BLUE}Install fnm and nodejs [y/N]${END}"
-	if [[ $INSTALL_ALL == "-y" ]]; then
-		response="y"
-	else
-		read response
-	fi
+  read -r -p "${BLUE}Install Fnm and NodeJS [y/N]${END}" response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	if ! [ -x "$(command -v fnm)" ]; then
             echo -e "${BLUE}Downloading and installing fnm...${END}"
@@ -102,17 +99,20 @@ function install_fnm_nodejs() {
 }
 
 function install_lunarvim() {
-    echo -e "${BLUE}Install LunarVim${END}"
+  read -r -p "${BLUE}Install LunarVim v1.3.0 [y/N]${END}" response
+	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-	
     chmod +x ~/.local/bin/lvim
     sudo cp ~/.local/bin/lvim /bin/lvim
+  fi
 }
 
 function copy_config() {
-    echo -e "${BLUE}Copy config${END}"
+  read -r -p "${BLUE}Copy my preference config? [y/N]${END}" response
+	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     mkdir -p ~/.config/lvim
-    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/ohsirawrat/.oh-dev-tools/master/lvim/config.lua
+    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/o-sirawat/.oenv/master/lvim/config.lua
+  fi
 
 }
 
@@ -122,4 +122,3 @@ install_fnm_nodejs
 install_lunarvim
 copy_config &&
 echo -e "${GREEN}LunarVim installation complete!${END}"
-echo -e "${GREEN}At first time, you need to :PackerSync${END}"
