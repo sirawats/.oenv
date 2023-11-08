@@ -57,9 +57,9 @@ function download_nvim() {
 function install_fnm_nodejs() {
   read -r -p "${BLUE}Install Fnm and NodeJS [y/N]${END}" response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-	if ! [ -x "$(command -v fnm)" ]; then
-            echo -e "${BLUE}Downloading and installing fnm...${END}"
-	   bash <(curl -s https://fnm.vercel.app/install)
+    if ! [ -x "$(command -v fnm)" ]; then
+        echo -e "${BLUE}Downloading and installing fnm...${END}"
+        bash <(curl -s https://fnm.vercel.app/install)
         else
             echo -e "${BLUE}fnm is already installed.${END}"
         fi
@@ -85,7 +85,14 @@ function install_fnm_nodejs() {
 			echo PATH=$PATH
 		fi
 
+    # Check if .zshrc exists
+    if [ -f "$HOME/.zshrc" ]; then
+        source "$HOME/.zshrc"
+    else
+        source "$HOME/.bashrc"
     fi
+
+  fi
 }
 
 function install_lunarvim() {
@@ -95,6 +102,7 @@ function install_lunarvim() {
     chmod +x ~/.local/bin/lvim
     sudo cp ~/.local/bin/lvim /bin/lvim
   fi
+  echo -e "${BLUE}[Optional] you can install ${GREEN}fd-find, ripgrep${BLUE} by 'apt' instead of rust${END}"
 }
 
 function copy_config() {
