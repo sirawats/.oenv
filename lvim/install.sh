@@ -4,16 +4,6 @@ BLUE=$'\e[1;34m'
 GREEN=$'\e[1;32m'
 END=$'\e[0m'
 
-
-read -r -p "${BLUE}Install dependencies (git, zsh, fonts-powerline) [y/N]${END}" response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-  sudo apt update
-  sudo apt install -y zsh fonts-powerline git
-fi
-
-
-
 # ---
 
 function install_dependencies() {
