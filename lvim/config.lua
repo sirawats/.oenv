@@ -22,9 +22,10 @@ lvim.transparent_window = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"                   -- Save buffer
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>" -- Next buffer
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>" -- Prev buffer
+lvim.keys.normal_mode["<C-x>"] = ":BufferKill<CR>"          -- Close buffer
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -139,9 +140,11 @@ formatters.setup {
   -- { command = "black",
   --   extra_args = { "--line-length=120", "--exclude=E402"},
   --   filetypes = { "python" } },
-  { command = "autopep8",
-    extra_args = { "--max-line-length","140", "--ignore","E402"},
-    filetypes = { "python" } },
+  {
+    command = "autopep8",
+    extra_args = { "--max-line-length", "140", "--ignore", "E402" },
+    filetypes = { "python" }
+  },
   { command = "isort", filetypes = { "python" } },
 
   { command = "isort", filetypes = { "python" } },
@@ -159,9 +162,11 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8",
+  {
+    command = "flake8",
     extra_args = { "--max-line-length=130", "--ignore=E402", "--inline-quotes='\"'" },
-    filetypes = { "python" } },
+    filetypes = { "python" }
+  },
 
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -170,11 +175,11 @@ linters.setup {
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     extra_args = { "--severity", "warning" },
   },
-  {
-    command = "codespell",
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "javascript", "python" },
-  },
+  -- {
+  --   command = "codespell",
+  --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --   filetypes = { "javascript", "python" },
+  -- },
 }
 
 -- Additional Plugins
@@ -199,33 +204,67 @@ linters.setup {
 --   end,
 -- })
 lvim.plugins = {
-    {"github/copilot.vim"},
-    {"loctvl842/monokai-pro.nvim"},
-    {"lunarvim/bigfile.nvim"},
-    {"lunarvim/darkplus.nvim"},
-    {
-      "iamcco/markdown-preview.nvim",
-      build = "cd app && npm install",
-      ft = "markdown",
-      config = function()
-        vim.g.mkdp_auto_start = 1
-      end,
-    },
+  -- {"github/copilot.vim"},
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+  { "loctvl842/monokai-pro.nvim" },
+  { "lunarvim/bigfile.nvim" },
+  { "lunarvim/darkplus.nvim" },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
 }
+
+-- Config plugin : Copilot
+local ok, copilot = pcall(require, "copilot")
+if not ok then
+  return
+end
+copilot.setup {
+  suggestion = {
+    keymap = {
+      accept = "<c-l>",
+      next = "<c-j>",
+      prev = "<c-k>",
+      dismiss = "<c-h>",
+    },
+  },
+}
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<CR>", opts)
+
+
+-- Config appearance
 lvim.builtin.bufferline.indicator_icon = "▎"
 lvim.builtin.bufferline.options.enforce_regular_tabs = true
 lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.highlights.indicator_selected = {
-      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      bg = { attribute = "bg", highlight = "Normal" },
+  fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
+  bg = { attribute = "bg", highlight = "Normal" },
 }
 
 local components = require "lvim.core.lualine.components"
 local mode = {
-	"mode",
-	fmt = function(str)
-		return "-- " .. str .. " --"
-	end,
+  "mode",
+  fmt = function(str)
+    return "-- " .. str .. " --"
+  end,
 }
 lvim.builtin.lualine.sections.lualine_a = { components.branch, mode }
 lvim.builtin.lualine.sections.lualine_b = { components.diagnostics, components.diff }
@@ -237,4 +276,3 @@ vim.api.nvim_command([[
         autocmd colorscheme * :hi linenr guibg=#
     augroup END
 ]])
-
