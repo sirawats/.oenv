@@ -12,13 +12,13 @@ then
   sudo apt install -y tmux
 fi
 
-read -r -p "${BLUE}Install o-sirawat/.tmux [y/N]${END}" response
+read -r -p "${BLUE}Install leossok/.tmux [y/N]${END}" response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
   cd
   git clone https://github.com/gpakosz/.tmux.git
   ln -s -f .tmux/.tmux.conf
-  curl -o ~/.tmux.conf.local -L https://raw.githubusercontent.com/o-sirawat/.oenv/master/tmux/.tmux.conf.local
+  curl -o ~/.tmux.conf.local -L https://raw.githubusercontent.com/leossok/.oenv/master/tmux/.tmux.conf.local
 fi
 
 echo -e "${BLUE}Finish!${END}"

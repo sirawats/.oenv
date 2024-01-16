@@ -28,7 +28,7 @@ fi
 read -r -p "${BLUE}Copy .zshrc from my preference to this machine? [y/N]${END}" response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-  curl -o ~/.zshrc -L https://raw.githubusercontent.com/o-sirawat/.oenv/master/zsh/.zshrc
+  curl -o ~/.zshrc -L https://raw.githubusercontent.com/leossok/.oenv/master/zsh/.zshrc
 fi
 
 read -r -p "${BLUE}Make zsh to be default shell? [y/N]${END}" response

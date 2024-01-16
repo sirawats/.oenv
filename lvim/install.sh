@@ -109,7 +109,7 @@ function copy_config() {
   read -r -p "${BLUE}Copy my preference config? [y/N]${END}" response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     mkdir -p ~/.config/lvim
-    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/o-sirawat/.oenv/master/lvim/config.lua
+    curl -o ~/.config/lvim/config.lua -L https://raw.githubusercontent.com/leossok/.oenv/master/lvim/config.lua
   fi
 
 }
