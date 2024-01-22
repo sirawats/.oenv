@@ -119,10 +119,14 @@ launchctl start com.koekeishiya.skhd.plist
 ```
 cp ~/.oenv/skhd/skhdrc ~/.skhdrc
 ```
-## 1. yabai : tilling window manager (similar to Amethyst/Magnet)
+## 2. yabai : tilling window manager (similar to Amethyst/Magnet)
 **github:** https://github.com/koekeishiya/yabai
 ### Install
 ```
 brew install koekeishiya/formulae/yabai
 brew services start yabai
 ```
+## 3. Make press and hold a key to repeat in VSCODE
+[ref](https://stackoverflow.com/questions/39972335/how-do-i-press-and-hold-a-key-and-have-it-repeat-in-vscode) 
+`defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+
