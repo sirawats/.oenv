@@ -100,6 +100,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-6 "['<Super>x']
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-7 "['<Super>c']"
 gsettings set org.gnome.shell.extensions.dash-to-dock app-hotkey-8 "['<Super>v']"
 ```
+### Use keyboard layout Mac-Style
+https://github.com/rbreaves/kinto#how-to-install-linux
 
 _______________________
 
