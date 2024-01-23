@@ -96,13 +96,18 @@ function install_fnm_nodejs() {
 }
 
 function install_lunarvim() {
+
+  read -r -p "${BLUE}[Optional] Install ${GREEN}fd-find, ripgrep${BLUE} [y/N]${END}" response
+	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    sudo apt install fd-find ripgrep
+  fi
+
   read -r -p "${BLUE}Install LunarVim v1.3.0 [y/N]${END}" response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
     chmod +x ~/.local/bin/lvim
     sudo cp ~/.local/bin/lvim /bin/lvim
   fi
-  echo -e "${BLUE}[Optional] you can install ${GREEN}fd-find, ripgrep${BLUE} by 'apt' instead of rust${END}"
 }
 
 function copy_config() {
