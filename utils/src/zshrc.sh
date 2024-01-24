@@ -8,3 +8,4 @@ if [ $? -eq 0 ]; then
     echo "Sourced ~/.zshrc successfully."
 else
     echo "Error: Failed to source ~/.zshrc."
+fi
