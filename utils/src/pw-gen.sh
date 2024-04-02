@@ -17,6 +17,6 @@ if [ "$#" -ne 1 ]; then
     echo "Error: Invalid number of arguments."
     display_help
 else
-    echo $(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c $1)
+   LC_CTYPE=C && LANG=C && echo $(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c $1)
 fi
 
