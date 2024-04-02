@@ -26,6 +26,11 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>" -- Next buffer
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>" -- Prev buffer
 lvim.keys.normal_mode["<C-x>"] = ":BufferKill<CR>"          -- Close buffer
+
+-- Toggle diagnostics
+lvim.keys.normal_mode["<leader>ks"] = ":lua vim.diagnostic.show()<CR>"
+lvim.keys.normal_mode["<leader>kh"] = ":lua vim.diagnostic.hide()<CR>"
+
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
