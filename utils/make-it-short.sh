@@ -21,7 +21,7 @@ create_aliases() {
     for script_file in "$script_dir"/*.sh; do
         if [ -f "$script_file" ]; then
             script_name=$(basename "$script_file" .sh)
-            alias "@$script_name"="source $script_file"
+            alias "@$script_name"="$script_file"
 
         fi
     done
@@ -30,7 +30,7 @@ create_aliases() {
     for script_file in "$script_extended_dir"/*.sh; do
         if [ -f "$script_file" ]; then
             script_name=$(basename "$script_file" .sh)
-            alias "@$script_name"="source $script_file"
+            alias "@$script_name"="$script_file"
         fi
     done
 }
