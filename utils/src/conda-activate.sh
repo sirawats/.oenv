@@ -21,10 +21,10 @@ fi
 # If no argument is provided, default to '.venv' or 'venv' in the current directory
 if [ "$#" -eq 0 ]; then
     if [ -d ".venv" ]; then
-        environment_path=".venv"
+        environment_path="./.venv"
         conda activate "$environment_path"
     elif [ -d "venv" ]; then
-        environment_path="venv"
+        environment_path="./venv"
         conda activate "$environment_path"
     else
         echo "Error: No Conda environment specified, and '.venv' or 'venv' not found in the current directory."
