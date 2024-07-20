@@ -146,12 +146,10 @@ formatters.setup {
   --   extra_args = { "--line-length=120", "--exclude=E402"},
   --   filetypes = { "python" } },
   {
-    command = "autopep8",
-    extra_args = { "--max-line-length", "140", "--ignore", "E402" },
+    command = "ruff",
+    extra_args = { "--line-length", "100", "--ignore", "E402" },
     filetypes = { "python" }
   },
-  { command = "isort", filetypes = { "python" } },
-
   { command = "isort", filetypes = { "python" } },
   {
     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -168,8 +166,8 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   {
-    command = "flake8",
-    extra_args = { "--max-line-length=130", "--ignore=E402", "--inline-quotes='\"'" },
+    command = "ruff",
+    extra_args = { "--line-length=130", "--ignore=E402"},
     filetypes = { "python" }
   },
 
@@ -180,11 +178,11 @@ linters.setup {
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     extra_args = { "--severity", "warning" },
   },
-  -- {
-  --   command = "codespell",
-  --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  --   filetypes = { "javascript", "python" },
-  -- },
+  {
+    command = "codespell",
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "javascript", "python" },
+  },
 }
 
 -- Additional Plugins
@@ -223,16 +221,7 @@ lvim.plugins = {
     end,
   },
   { "loctvl842/monokai-pro.nvim" },
-  { "lunarvim/bigfile.nvim" },
   { "lunarvim/darkplus.nvim" },
-  {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    ft = "markdown",
-    config = function()
-      vim.g.mkdp_auto_start = 1
-    end,
-  },
 }
 
 -- Config plugin : Copilot
