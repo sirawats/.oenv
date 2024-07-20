@@ -1,0 +1,78 @@
+#!/usr/bin/env sh
+
+# ==== Rules ====================
+# === LAYER ABOVE ===
+yabai -m rule --add app="^kitty.*$" title="^kitty.*$" layer=above
+yabai -m rule --add app="^Alfred.*$" layer=above manage=off
+yabai -m rule --add app="^Spotlight$" layer=above manage=off
+
+# === LAYER NORMAL ===
+# Add rules for apps you want in normal layer if needed
+
+# === LAYER BELOW ===
+yabai -m rule --add app="^Microsoft Teams.*$" title="^Microsoft Teams.*$" layer=below
+yabai -m rule --add app="^Slack.*$" title="^Slack.*$" layer=below
+
+# === MANAGE OFF ===
+yabai -m rule --add app="^DBeaver.*$" title="^DBeaver.*$" layer=above manage=off
+yabai -m rule --add app="^(App Store|Microsoft Excel|Microsoft Word|Microsoft PowerPoint|VLC|Steam|LINE|TIDAL|Messages|Preview)$" manage=off
+
+# Finder and Safari specific rules
+yabai -m rule --add app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+
+# System apps and utilities
+yabai -m rule --add app="^(System (Preferences|Settings|Setting)|App Store|Activity Monitor|Calculator|Dictionary)$" title=".*" manage=off
+yabai -m rule --add app="^mpv$" manage=off
+yabai -m rule --add title="Software Update" manage=off
+yabai -m rule --add app="System Information" title="About This Mac" manage=off
+
+# ==== Space Settings ====================
+# Assign apps to specific spaces (customize as needed)
+yabai -m rule --add app="^Safari$" space=1
+yabai -m rule --add app="^Code$" space=2
+yabai -m rule --add app="^Terminal$" space=3
+
+# ==== Global Settings ====================
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                float
+yabai -m config window_animation_duration    0.15
+yabai -m config window_opacity_duration      0.15
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config window_opacity               on
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config window_border_width          4
+yabai -m config window_border_radius         5
+yabai -m config window_border_blur           off
+yabai -m config window_border_hidpi          on
+yabai -m config window_border                on
+yabai -m config split_ratio                  0.50
+yabai -m config split_type                   auto
+yabai -m config auto_balance                 on
+yabai -m config top_padding                  5
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config window_gap                   5
+yabai -m config layout                       bsp
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+# ==== Signals ====================
+# Refresh Übersicht widgets when the space changes
+yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+
+# ==== Status Bar ====================
+# If you use a status bar like simple-bar, uncomment and customize this
+# yabai -m config external_bar all:26:0
+
+echo "yabai configuration loaded.."
