@@ -55,7 +55,7 @@ yabai -m config window_border_hidpi          on
 yabai -m config window_border                on
 yabai -m config split_ratio                  0.50
 yabai -m config split_type                   auto
-yabai -m config auto_balance                 on
+yabai -m config auto_balance                 off
 yabai -m config top_padding                  5
 yabai -m config bottom_padding               5
 yabai -m config left_padding                 5
@@ -76,3 +76,4 @@ yabai -m signal --add event=space_changed action="osascript -e 'tell application
 # yabai -m config external_bar all:26:0
 
 echo "yabai configuration loaded.."
+
