@@ -1,12 +1,14 @@
 alt - 1 : open -akitty
 alt - 2 : open -a"Google Chrome"
 shift + alt - 2 : open -a"Google Chrome" --new
-alt - 3 : open -a"Cursor"
-shift + alt - 3 : open -a"Cursor" --new
+alt - 5 : open -a"Cursor"
+shift + alt - 5 : open -a"Cursor" --new
 alt - 4 : open -aFinder
 shift + alt - 4 : open -aFinder --new
-alt - 5 : open -a"Visual Studio Code"
-shift + alt - 5 : open -a"Visual Studio Code" --new
+alt - 3 : open -a"Visual Studio Code"
+shift + alt - 3 : open -a"Visual Studio Code" --new
+alt - 0 : open -a"Arc"
+alt - 9 : open -a"Obsidian"
 shift + ctrl - escape : open -a 'Activity Monitor.app'
 
 shift + alt - z : yabai -m window --focus recent
@@ -21,6 +23,11 @@ shift + alt - left : yabai -m window --focus west || yabai -m display --focus we
 shift + alt - right : yabai -m window --focus east || yabai -m display --focus east 
 shift + alt - up : yabai -m window --focus north || yabai -m display --focus north
 shift + alt - down : yabai -m window --focus south || yabai -m display --focus south
+
+alt - h : yabai -m window --focus west || yabai -m display --focus west
+alt - l : yabai -m window --focus east || yabai -m display --focus east 
+alt - k : yabai -m window --focus north || yabai -m display --focus north
+alt - j : yabai -m window --focus south || yabai -m display --focus south
 
 shift + alt - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
 shift + alt - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
